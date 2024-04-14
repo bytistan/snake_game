@@ -10,15 +10,10 @@ class Game:
     def __init__(self):
         self.display_surface = pygame.display.get_surface()
 
-        self.wall = pygame.sprite.Group()
-        self.snake = pygame.sprite.GroupSingle()
-        self.food = pygame.sprite.GroupSingle()
-        self.settings = read_json_file("./resources/settings/settings.json")
-
         self.wall_coordinates = []
         self.flag = True 
 
-        self.setup()
+        self.c = True
 
     def crash_wall(self):
         for sprite in self.wall.sprites():
@@ -58,6 +53,12 @@ class Game:
             self.food_change_pos()
 
     def setup(self):
+        self.settings = read_json_file("./resources/settings/settings.json")
+
+        self.wall = pygame.sprite.Group()
+        self.snake = pygame.sprite.GroupSingle()
+        self.food = pygame.sprite.GroupSingle()
+
         for row_index,row in enumerate(MAP[self.settings["map"]]):
             for column_index,cell in enumerate(row):
                 x = column_index * size 
@@ -71,12 +72,24 @@ class Game:
                 if cell == "F":
                     self.food.add(Food((x,y)))
 
-    def loop(self):
+        self.c = False
+
+    def clean(self):
+        self.snake.empty()
+        self.wall.empty()
+        self.food.empty()
+
+    def update(self,pause):
+
+        if self.c and self.flag:
+            self.setup()
+        if not pause and self.flag:
+            self.eat()
+            self.bite_tail()
+            self.crash_wall()
+            self.snake.update()
+
         self.wall.draw(self.display_surface)
         self.food.draw(self.display_surface)
         self.snake.draw(self.display_surface)
-        self.snake.update()
 
-        self.eat()
-        self.bite_tail()
-        self.crash_wall()

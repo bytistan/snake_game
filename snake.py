@@ -44,8 +44,8 @@ class Snake(pygame.sprite.Sprite):
                 self.tail.remove(self.tail.sprites()[0])
 
     def apply_speed(self):
-        self.rect.x += self.direction.x * self.settings["speed"]
-        self.rect.y += self.direction.y * self.settings["speed"]
+        self.rect.x += self.direction.x * (self.settings["speed"] + 4)
+        self.rect.y += self.direction.y * (self.settings["speed"] + 4)
 
     def update(self):
         self.tail_add()

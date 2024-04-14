@@ -19,104 +19,95 @@ page = {
         {
             "img":pygame.image.load("./resources/img/menu/text/play.png"),
             "coordinate":(80,161),
-            "size":(135,25)
         },
         {
             "img":pygame.image.load("./resources/img/menu/text/settings.png"),
-            "coordinate":(80,220),
-            "size":(224,27)
+            "coordinate":(80,220)
         },
         {
             "img":pygame.image.load("./resources/img/menu/text/exit.png"),
-            "coordinate":(80,283),
-            "size":(97,25)
+            "coordinate":(80,283)
         },
         {
             "img":pygame.image.load("./resources/img/menu/component/snake-box.png"),
-            "coordinate":(360,40),
-            "size":(80,400)
+            "coordinate":(360,40)
         }
     ],
     "settings":[
         {
             "img":pygame.image.load("./resources/img/menu/text/map.png"),
-            "coordinate":(80,158),
-            "size":(87,25)
+            "coordinate":(80,158)
         },
         {
             "img":pygame.image.load("./resources/img/menu/text/speed.png"),
-            "coordinate":(80,222),
-            "size":(87,25)
+            "coordinate":(80,222)
         },
         {
             "img":pygame.image.load("./resources/img/menu/text/sound.png"),
-            "coordinate":(80,286),
-            "size":(160,27)
+            "coordinate":(80,286)
         },
         {
             "img":pygame.image.load("./resources/img/menu/component/snake-box.png"),
-            "coordinate":(360,40),
-            "size":(80,400)
+            "coordinate":(360,40)
         }
     ],
     "map":[
         {
             "img":pygame.image.load("./resources/img/menu/component/select-button.png"),
-            "coordinate":(120,289),
-            "size":(239,65)
+            "coordinate":(120,289)
         },
         {
             "img":pygame.image.load("./resources/img/menu/arrow/left.png"),
-            "coordinate":(88,156),
-            "size":(64,64)
+            "coordinate":(88,156)
         },
         {
             "img":pygame.image.load("./resources/img/menu/arrow/right.png"),
-            "coordinate":(328,156),
-            "size":(64,64)
+            "coordinate":(328,156)
         },
     ],
     "speed":[
         {
             "img":pygame.image.load("./resources/img/menu/component/select-button.png"),
-            "coordinate":(120,289),
-            "size":(239,65)
+            "coordinate":(120,289)
         },
         {
             "img":pygame.image.load("./resources/img/menu/arrow/left.png"),
-            "coordinate":(95,161),
-            "size":(64,64)
+            "coordinate":(95,161)
         },
         {
             "img":pygame.image.load("./resources/img/menu/arrow/right.png"),
-            "coordinate":(321,161),
-            "size":(64,64)
+            "coordinate":(321,161)
         },
 
     ],
     "sound":[
         {
             "img":pygame.image.load("./resources/img/menu/component/select-button.png"),
-            "coordinate":(120,289),
-            "size":(239,65)
+            "coordinate":(120,289)
         },
         {
             "img":pygame.image.load("./resources/img/menu/arrow/left.png"),
-            "coordinate":(95,161),
-            "size":(64,64)
+            "coordinate":(95,161)
         },
         {
             "img":pygame.image.load("./resources/img/menu/arrow/right.png"),
-            "coordinate":(321,161),
-            "size":(64,64)
+            "coordinate":(321,161)
         }
     ],
-    "game":[
+    "pause":[
         {
             "img":pygame.image.load("./resources/img/menu/background/game-popup.png"),
-            "coordinate":(130,180),
-            "size":(240,120)
-        }
+            "coordinate":(130,180)
+        },
+        {
+            "img":pygame.image.load("./resources/img/menu/text/continue.png"),
+            "coordinate":(180,212)
+        },
+        {
+            "img":pygame.image.load("./resources/img/menu/text/main-menu.png"),
+            "coordinate":(180,250)
+        },
+
     ]
 }
 
@@ -172,7 +163,6 @@ MAP = {
         "0                  0",
         "0                  0",
         "0             F    0",
-        "0                  0",
         "0                  0",
         "0                  0",
         "0                  0",

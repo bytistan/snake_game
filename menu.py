@@ -15,7 +15,8 @@ class Menu:
             2:"settings",
             3:"map",
             4:"speed",
-            5:"sound"
+            5:"sound",
+            6:"pause"
         }
 
         self.arrow_index = 0
@@ -74,15 +75,16 @@ class Menu:
         }
 
         self.game = Game()
+        self.pause = False 
 
     def exit(self):
         pygame.quit()
         sys.exit() 
 
     def change_speed(self,event):
-        if event.key == pygame.K_RIGHT and self.settings["speed"] % 4 < len(speed_image) - 1:
+        if event.key == pygame.K_RIGHT and self.settings["speed"] % 3 < len(speed_image) - 1:
             self.settings["speed"] += 4
-        if event.key == pygame.K_LEFT and self.settings["speed"] % 4 > 4:
+        if event.key == pygame.K_LEFT and self.settings["speed"] % 3 > 0:
             self.settings["speed"] -= 4
 
     def change_sound(self,event):
@@ -111,8 +113,8 @@ class Menu:
             elif self.page_number == 2:
                 self.page_number = 0
         elif event.key == pygame.K_SPACE: 
-            if self.space[self.page_number][self.arrow_index]:
-                self.page_number = self.space[self.page_number][self.arrow_index]
+            self.page_number = self.space[self.page_number][self.arrow_index]
+        self.arrow_index = 0
 
     def set_settings(self,event):
         self.page_number = 2
@@ -136,6 +138,10 @@ class Menu:
             if not self.flag:
                 self.input(event)
 
+            if self.flag:
+                if event.type == pygame.K_ESCAPE:
+                    self.pause = True
+        
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()    
@@ -143,10 +149,12 @@ class Menu:
     def action_handler(self,event):
         if event.key in [pygame.K_SPACE,pygame.K_ESCAPE]:
             if self.page_number in [0,2]:
-                if self.arrow_index != 0:
-                    self.change_page(event)
-                else:
+                if self.arrow_index == 0 and self.page_number == 0:
                     self.flag = True
+                    self.game.flag = True
+                    self.game.c = True
+                else:
+                    self.change_page(event)
             else:
                 self.set_settings(event)
 
@@ -174,4 +182,7 @@ class Menu:
         if not self.flag:
             self.draw()
         else:
-            self.game.loop()
+            self.game.update(self.pause)
+            if not self.game.flag:
+                self.flag = False
+                self.game.clean()
