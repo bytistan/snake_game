@@ -28,6 +28,10 @@ This game was made for educational purposes.
     python main.py
     ```
 
+## Keys
+
+You can play with **↑ ↓ ← →** and select with **SPACE** lastly back to previous page **ESC**.
+
 ## Features
 
 - You can adjust features such as speed, map and sound.
