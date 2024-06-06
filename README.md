@@ -7,7 +7,7 @@ This game was made for educational purposes.
 1. First, clone the project to your computer:
 
     ```bash
-    git clone https://github.com/lockman-herif/snake-game
+    git clone https://github.com/lockman-herif/snake_game
     ```
 
 2. Go to the project directory:
